@@ -1,6 +1,8 @@
+//app that display season sentence depend on location & month
 import React from "react";
 import ReactDOM from "react-dom";
 import SeasonDisplay from "./SeasonDisplay";
+import Spinner from "./Spinner";
 
 class App extends React.Component {
   state = { lat: null, errorMessage: "" };
@@ -13,20 +15,19 @@ class App extends React.Component {
       (err) => this.setState({ errorMessage: err.message })
     );
   }
-
-  //react should have render
-  render() {
+  renderContent() {
     if (this.state.errorMessage && !this.state.lat) {
       return <div>Error:{this.state.errorMessage}</div>;
     }
     if (!this.state.errorMessage && this.state.lat) {
       return <SeasonDisplay lat={this.state.lat} />;
     }
-    return (
-      <div>
-        <h1>Loading!</h1>
-      </div>
-    );
+    return <Spinner message="Please accept loction request" />;
+  }
+
+  //react should have render
+  render() {
+    return <div className="border red">{this.renderContent()}</div>;
   }
 }
 
