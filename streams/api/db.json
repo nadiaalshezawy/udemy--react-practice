@@ -1,0 +1,16 @@
+{
+  "streams": [
+    {
+      "Title": "my stream",
+      "description": "First stream video",
+      "userId": "116367261356763807542",
+      "id": 1
+    },
+    {
+      "Title": "stream programtic",
+      "description": "this programmtic stream",
+      "userId": "116367261356763807542",
+      "id": 2
+    }
+  ]
+}
